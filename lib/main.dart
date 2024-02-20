@@ -3,155 +3,81 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
+import 'package:overlay_kit/overlay_kit.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:seven_steps/screens/auth/forget_password_screen.dart';
+import 'package:seven_steps/screens/auth/login_screen.dart';
+import 'package:seven_steps/screens/auth/register_screen.dart';
+import 'package:seven_steps/screens/category/single_category_screen.dart';
+import 'package:seven_steps/screens/dashboard/dashboard.dart';
+import 'package:seven_steps/screens/product/add_product_screen.dart';
+import 'package:seven_steps/screens/product/edit_product_screen.dart';
+import 'package:seven_steps/screens/product/my_product_screen.dart';
+import 'package:seven_steps/screens/product/single_product_screen.dart';
+import 'package:seven_steps/screens/splash_screen.dart';
+import 'package:seven_steps/services/local_notification_service.dart';
+import 'package:seven_steps/viewmodels/auth_viewmodel.dart';
+import 'package:seven_steps/viewmodels/category_viewmodel.dart';
+import 'package:seven_steps/viewmodels/global_ui_viewmodel.dart';
+import 'package:seven_steps/viewmodels/product_viewmodel.dart';
 
+import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  NotificationService.initialize();
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_)=> UserViewModel()),
+        ChangeNotifierProvider(create: (_) => GlobalUIViewModel()),
+        ChangeNotifierProvider(create: (_) => AuthViewModel()),
+        ChangeNotifierProvider(create: (_) => CategoryViewModel()),
+        ChangeNotifierProvider(create: (_) => ProductViewModel()),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(appBarTheme: const AppBarTheme(color: Colors.red)),
-        ),
-    );
-  }
-}
-
-class TestScreen extends StatefulWidget {
-  const TestScreen({super.key});
-
-  @override
-  State<TestScreen> createState() => _TestScreenState();
-}
-
-class _TestScreenState extends State<TestScreen> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-          actions: const [
-            Icon(Icons.share),
-            Padding(
-              padding: EdgeInsets.only(right: 10, left: 20),
-              child: Icon(Icons.favorite),
-            )
-          ],
-          centerTitle: true,
-          leading: Icon(Icons.menu),
-          title: Text(
-            "My App",
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-          )),
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 200,
-              width: MediaQuery.of(context).size.width,
-              child: Stack(children: [
-                Container(
-                  height: 100,
-                  width: MediaQuery.of(context).size.width,
-                  decoration: const BoxDecoration(
-                      color: Colors.pink,
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(20),
-                          bottomRight: Radius.circular(20))),
-                ),
-                const Positioned(
-                  height: 80,
-                  left: 20,
-                  right: 20,
-                  top: 60,
-                  child: Card(
-                    child: ListTile(
-                        trailing: Icon(Icons.check_circle),
-                        title: Text("Ram shrestha"),
-                        subtitle: Text("Hello, Ram Shrestha"),
-                        leading: CircleAvatar(
-                          backgroundImage:
-                          AssetImage("assets/images/test.jpeg"),
-                        )),
-                  ),
-                ),
-              ]),
+      child: OverlayKit(
+        child: Consumer<GlobalUIViewModel>(builder: (context, loader, child) {
+          // if (loader.isLoading) {
+          //   OverlayLoadingProgress.start();
+          // } else {
+          //   OverlayLoadingProgress.stop();
+          // }
+          return MaterialApp(
+            title: 'Flutter Demo',
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              fontFamily: "Poppins",
+              primarySwatch: Colors.green,
+              textTheme: GoogleFonts.aBeeZeeTextTheme(),
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.yellow,
-                ),
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.purple,
-                ),
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.red,
-                ),
-              ],
-            ),
-            Image.asset('assets/images/test.jpeg'),
-            Container(
-              height: 100,
-              width: 100,
-              decoration: BoxDecoration(color: Colors.red),
-              child: Column(
-                children: [
-                  Center(
-                      child: Text("Flutter",
-                          style: TextStyle(color: Colors.white, fontSize: 20))),
-                ],
-              ),
-            ),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-            Image.network(
-                "https://cdn-images-1.medium.com/v2/resize:fit:1200/1*5-aoK8IBmXve5whBQM90GA.png"),
-          ],
-        ),
+            initialRoute: "/splash",
+            routes: {
+              "/login": (BuildContext context) => LoginScreen(),
+              "/splash": (BuildContext context) => SplashScreen(),
+              "/register": (BuildContext context) => RegisterScreen(),
+              "/forget-password": (BuildContext context) =>
+                  ForgetPasswordScreen(),
+              "/dashboard": (BuildContext context) => DashboardScreen(),
+              "/add-product": (BuildContext context) => AddProductScreen(),
+              "/edit-product": (BuildContext context) => EditProductScreen(),
+              "/single-product": (BuildContext context) =>
+                  SingleProductScreen(),
+              "/single-category": (BuildContext context) =>
+                  SingleCategoryScreen(),
+              "/my-products": (BuildContext context) => MyProductScreen(),
+            },
+          );
+        }),
       ),
     );
   }
-}
+}}
