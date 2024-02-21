@@ -86,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Container(
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               child: Text(
-                                "Products",
+                                "Our Products",
                                 style: GoogleFonts.poppins(fontSize: 30, fontWeight: FontWeight.bold),
                               )),
                           Container(
@@ -257,7 +257,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                           Text(
                             "Rs. "+e.productPrice.toString(),
-                            style: TextStyle(fontSize: 15, color: Colors.green),
+                            style: TextStyle(fontSize: 15, color: Colors.brown),
                             textAlign: TextAlign.center,
                             maxLines: 2,
                           ),

@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 import 'package:provider/provider.dart';
 import '../../viewmodels/auth_viewmodel.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';
@@ -48,13 +51,22 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
               padding: const EdgeInsets.all(20),
               child: Column(
                 children: [
+                  const Text(
+                    "You Forgot The Password",
+                    style:TextStyle(
+                      fontSize: 20,
+                        fontFamily: 'WorkSansSemiBold'
+                    )
+                  ),
+
                   Image.asset(
-                    "assets/images/logo.png",
-                    height: 100,
-                    width: 100,
+                    "assets/images/forgot.png",
+                    height: 300,
+                    width: 200,
+
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   TextFormField(
                     controller: _emailController,
@@ -74,14 +86,14 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
                         style: ButtonStyle(
-                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(color: Colors.blue))),
-                          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: 20)),
+                          shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(color: Colors.brown)),),
+                          padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: 10)),
                         ),
                         onPressed: () {
                           resetPassword();
@@ -91,6 +103,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           style: TextStyle(fontSize: 20),
                         )),
                   ),
+
                   SizedBox(
                     height: 20,
                   ),
@@ -98,7 +111,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        "Already know the password? ",
+                        "Didn't forget the password? ",
                         style: TextStyle(color: Colors.grey.shade800),
                       ),
                       InkWell(
@@ -107,7 +120,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           },
                           child: Text(
                             "Sign In",
-                            style: TextStyle(color: Colors.blue),
+                            style: TextStyle(color: Colors.lightBlue),
                           ))
                     ],
                   ),

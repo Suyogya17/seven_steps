@@ -81,9 +81,17 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   Image.asset(
                     "assets/images/logo.png",
                     height: 100,
-                    width: 100,
+                    width: 200,
                   ),
                   SizedBox(height: 10,),
+                  Text(
+                    "--- Enter your details ---",
+                    style: TextStyle(
+                        fontFamily: 'WorkSansSemiBold',
+                        fontSize: 20.0,
+                        color: Colors.black
+                    ),
+                  ),
                   TextFormField(
                     controller: _nameController,
                     validator: ValidateSignup.name,
@@ -106,7 +114,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         color: Colors.black,
                         size: 22.0,
                       ),
-                      hintText: 'First Name',
+                      hintText: 'Full Name',
                       hintStyle:
                       TextStyle(fontFamily: 'WorkSansSemiBold', fontSize: 17.0),
                     ),
@@ -284,10 +292,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                               RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
-                                  side: const BorderSide(color: Colors.blue)
+                                  side: const BorderSide(color: Colors.brown)
                               )
                           ),
-                          padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(vertical: 20)),
+                          padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.symmetric(vertical: 10,)),
                         ),
                         onPressed: (){
                           register();
@@ -306,7 +314,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           onTap: (){
                             Navigator.of(context).pop();
                           },
-                          child: Text("Sign in", style: TextStyle(color: Colors.blue),))
+                          child: Text("Sign in", style: TextStyle(color: Colors.lightBlue),))
                     ],
                   ),
 

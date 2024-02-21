@@ -97,10 +97,12 @@ class _CartScreenState extends State<CartScreen> {
                     children: [
                       Container(
                         child: Text("Total Items : ${total.toString()}"),
+
                       ),
                       Container(
                         child: Text("Total Price : ${total_price.toString()}"),
                       ),
+
                     ],
                   );
                 }),
@@ -126,7 +128,7 @@ class _CartScreenState extends State<CartScreen> {
                           },
                           icon: Icon(
                             Icons.delete_outlined,
-                            color: Colors.red,
+                            color: Colors.black,
                           ),
                         ),
                         leading: ClipRRect(

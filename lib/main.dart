@@ -52,8 +52,9 @@ class MyApp extends StatelessWidget {
           //   OverlayLoadingProgress.stop();
           // }
           return MaterialApp(
-            title: 'Flutter Demo',
+            title: 'Seven Steps',
             debugShowCheckedModeBanner: false,
+            color: Colors.grey,
             theme: ThemeData(
               fontFamily: "Poppins",
               primarySwatch: Colors.green,
