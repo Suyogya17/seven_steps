@@ -55,11 +55,11 @@ class MyApp extends StatelessWidget {
             title: 'Seven Steps',
             debugShowCheckedModeBanner: false,
             color: Colors.white,
-
             theme: ThemeData(
               fontFamily: "Poppins",
               primarySwatch: Colors.brown,
               textTheme: GoogleFonts.aBeeZeeTextTheme(),
+              backgroundColor: Colors.white
             ),
 
             initialRoute: "/splash",

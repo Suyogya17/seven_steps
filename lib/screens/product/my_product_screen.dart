@@ -39,6 +39,7 @@ class _MyProductScreenState extends State<MyProductScreen> {
   Widget build(BuildContext context) {
     return Consumer<AuthViewModel>(builder: (context, authVM, child) {
       return Scaffold(
+
         floatingActionButton: FloatingActionButton.extended(
           label: Text("Add Product"),
           icon: Icon(Icons.add),
@@ -51,15 +52,22 @@ class _MyProductScreenState extends State<MyProductScreen> {
           title: Text("My Products"),
         ),
 
-        body: RefreshIndicator(
-          onRefresh: getInit,
-          child: SingleChildScrollView(
-            physics: AlwaysScrollableScrollPhysics(),
-            child: Column(
-              children: [
-                if (_authViewModel.myProduct != null && _authViewModel.myProduct!.isEmpty) Center(child: Text("You can add your products here")),
-                if (_authViewModel.myProduct != null) ...authVM.myProduct!.map((e) => ProductWidgetList(context, e))
-              ],
+        body: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/images/box.jpg")
+            ),
+          ),
+          child: RefreshIndicator(
+            onRefresh: getInit,
+            child: SingleChildScrollView(
+              physics: AlwaysScrollableScrollPhysics(),
+              child: Column(
+                children: [
+                  if (_authViewModel.myProduct != null && _authViewModel.myProduct!.isEmpty) Center(child: Text("You can add your products here")),
+                  if (_authViewModel.myProduct != null) ...authVM.myProduct!.map((e) => ProductWidgetList(context, e))
+                ],
+              ),
             ),
           ),
         ),

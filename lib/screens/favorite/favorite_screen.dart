@@ -52,6 +52,14 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
   Widget build(BuildContext context) {
     return Consumer<AuthViewModel>(builder: (context, authVM, child) {
       return Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              "assets/images/favbg.jpg",
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: RefreshIndicator(
           onRefresh: getInit,
           child: SingleChildScrollView(
@@ -70,7 +78,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
               ],
             )
                 : Column(children: [
-              SizedBox(height: 10,),
+              SizedBox(height: 30,),
               ...authVM.favoriteProduct!.map(
                     (e) => InkWell(
                   onTap: (){

@@ -63,6 +63,14 @@ class _CartScreenState extends State<CartScreen> {
   Widget build(BuildContext context) {
     return Consumer<AuthViewModel>(builder: (context, authVM, child) {
       return Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              "assets/images/addtocart.jpg",
+            ),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: RefreshIndicator(
           onRefresh: getInit,
           child: SingleChildScrollView(
@@ -94,13 +102,18 @@ class _CartScreenState extends State<CartScreen> {
                   });
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+
                     children: [
                       Container(
-                        child: Text("Total Items : ${total.toString()}"),
-
+                        child: Text("Total Items : ${total.toString()}",
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                       Container(
-                        child: Text("Total Price : ${total_price.toString()}"),
+                        child: Text("Total Price : ${total_price.toString()}",
+                        textAlign: TextAlign.center
+                          ,),
                       ),
 
                     ],
