@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:seven_steps/services/local_notification_service.dart';
 import 'package:provider/provider.dart';
-
 import '../../viewmodels/auth_viewmodel.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';
 
@@ -45,18 +44,21 @@ class _AccountScreenState extends State<AccountScreen> {
       child: Column(
         children: [
           SizedBox(
-            height: 10,
+            height: 40,
           ),
           Image.asset(
-            "assets/images/logo.png",
-            height: 100,
-            width: 100,
+            "assets/images/user.png",
+            height: 200,
+            width: 300,
           ),
           SizedBox(
             height: 10,
           ),
           Container(
-            child: Text(_auth.loggedInUser!.email.toString()),
+            child: Text(_auth.loggedInUser!.email.toString(),style: TextStyle(
+              fontSize: 20,
+                fontFamily: 'WorkSansSemiBold',
+            ),),
           ),
           SizedBox(
             height: 10,
@@ -80,7 +82,7 @@ class _AccountScreenState extends State<AccountScreen> {
           makeSettings(
               icon: Icon(Icons.android),
               title: "Version",
-              subtitle: "0.0.1",
+              subtitle: "7.1.7",
               onTap: (){
 
               }
@@ -94,7 +96,8 @@ class _AccountScreenState extends State<AccountScreen> {
     return InkWell(
       onTap: onTap,
       child: Container(
-        margin: EdgeInsets.symmetric(horizontal: 5),
+        margin: EdgeInsets.symmetric(horizontal: 15),
+        padding: EdgeInsets.symmetric(horizontal: 10),
         child: Card(
             elevation: 4,
             color: Colors.white,

@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -45,6 +44,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
   Widget build(BuildContext context) {
     return Form(
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -54,19 +54,23 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                   const Text(
                     "You Forgot The Password",
                     style:TextStyle(
-                      fontSize: 20,
-                        fontFamily: 'WorkSansSemiBold'
+                      fontSize: 25,
+                        fontFamily: 'WorkSansSemiBold',
+                      fontWeight: FontWeight.bold
                     )
+                  ),
+                  SizedBox(
+                    height: 40,
                   ),
 
                   Image.asset(
                     "assets/images/forgot.png",
-                    height: 300,
-                    width: 200,
+                    height: 200,
+                    width: 300,
 
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 40,
                   ),
                   TextFormField(
                     controller: _emailController,
@@ -98,13 +102,13 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                         onPressed: () {
                           resetPassword();
                         },
-                        child: Text(
+                        child: const Text(
                           "Reset Password",
                           style: TextStyle(fontSize: 20),
                         )),
                   ),
 
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(

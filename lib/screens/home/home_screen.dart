@@ -139,12 +139,14 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               children: [
                 Expanded(child: Container()),
-                Expanded(child: Image.asset("assets/images/logo.png", height: 50, width: 50,)),
+                Expanded(child: Image.asset("assets/images/logo.png",
+                  height: 100, width: 50,
+                )
+                ),
                 Expanded(
                     child: Align(
                         alignment: Alignment.centerRight,
                         child: Container()
-                      // Icon(Icons.search, size: 30,)
                     )),
               ],
             )));
@@ -235,7 +237,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         'assets/images/logo.png',
                         height: 300,
                         width: double.infinity,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fitWidth,
                       );
                     },
                   )),

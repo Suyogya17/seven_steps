@@ -28,7 +28,7 @@ class _SplashScreenState extends State<SplashScreen> {
       }else{
         NotificationService.display(
           title: "Welcome back",
-          body: "Hello ${_authViewModel.loggedInUser?.name},\n We have been waiting for you.",
+          body: "Hello ${_authViewModel.loggedInUser?.name},\n Nice to see you over here!!",
         );
         Navigator.of(context).pushReplacementNamed("/dashboard");
       }
@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.white60,
       body: Center(
         child: SingleChildScrollView(
           child: Column(

@@ -70,6 +70,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Form(
         key: _formKey,
         child: Center(
@@ -79,11 +80,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
               child: Column(
                 children: [
                   Image.asset(
-                    "assets/images/logo.png",
-                    height: 100,
-                    width: 200,
+                    "assets/images/registration.png",
+                    height:200,
+                    width: 300,
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(height:0),
                   Text(
                     "--- Enter your details ---",
                     style: TextStyle(

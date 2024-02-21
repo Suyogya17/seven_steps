@@ -5,7 +5,6 @@ import 'package:seven_steps/repositories/product_repositories.dart';
 import 'package:seven_steps/services/file_upload.dart';
 import 'package:seven_steps/viewmodels/category_viewmodel.dart';
 import 'package:provider/provider.dart';
-
 import '../../viewmodels/auth_viewmodel.dart';
 import '../../viewmodels/global_ui_viewmodel.dart';
 
@@ -252,7 +251,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20),
-                                      side: BorderSide(color: Colors.blue)
+                                      side: BorderSide(color: Colors.brown)
                                   )
                               ),
                               padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: 10)),
@@ -268,11 +267,10 @@ class _AddProductScreenState extends State<AddProductScreen> {
                         width: double.infinity,
                         child: ElevatedButton(
                             style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(Colors.orange) ,
                               shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20),
-                                      side: BorderSide(color: Colors.orange)
+                                      side: BorderSide(color: Colors.brown)
                                   )
                               ),
                               padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: 10)),

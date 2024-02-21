@@ -158,9 +158,10 @@ class _EditProductBodyState extends State<EditProductBody> {
             return Text("Error");
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.black54,
+              backgroundColor: Colors.white12,
               title: Text("Edit a product"),
             ),
+            backgroundColor: Colors.white,
             body: Consumer<CategoryViewModel>(builder: (context, categoryVM, child) {
               return SafeArea(
                 child: SingleChildScrollView(
@@ -306,7 +307,7 @@ class _EditProductBodyState extends State<EditProductBody> {
                           width: double.infinity,
                           child: ElevatedButton(
                               style: ButtonStyle(
-                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(color: Colors.blue))),
+                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(color: Colors.brown))),
                                 padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: 10)),
                               ),
                               onPressed: () {
@@ -324,8 +325,7 @@ class _EditProductBodyState extends State<EditProductBody> {
                           width: double.infinity,
                           child: ElevatedButton(
                               style: ButtonStyle(
-                                backgroundColor: MaterialStateProperty.all<Color>(Colors.orange),
-                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(color: Colors.orange))),
+                                shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(20), side: BorderSide(color: Colors.brown))),
                                 padding: MaterialStateProperty.all<EdgeInsets>(EdgeInsets.symmetric(vertical: 10)),
                               ),
                               onPressed: () {

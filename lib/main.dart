@@ -54,12 +54,14 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             title: 'Seven Steps',
             debugShowCheckedModeBanner: false,
-            color: Colors.grey,
+            color: Colors.white,
+
             theme: ThemeData(
               fontFamily: "Poppins",
-              primarySwatch: Colors.green,
+              primarySwatch: Colors.brown,
               textTheme: GoogleFonts.aBeeZeeTextTheme(),
             ),
+
             initialRoute: "/splash",
             routes: {
               "/login": (BuildContext context) => LoginScreen(),

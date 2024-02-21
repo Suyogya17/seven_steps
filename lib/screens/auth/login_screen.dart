@@ -62,6 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Form(
       key: _formKey,
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: Center(
           child: SingleChildScrollView(
             child: Container(
@@ -193,7 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           },
                           child: Text(
                             "Sign up",
-                            style: TextStyle(color: Colors.lightBlue),
+                            style: TextStyle(color: Colors.lightBlue)
                           ))
                     ],
                   ),

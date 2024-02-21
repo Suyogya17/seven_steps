@@ -71,7 +71,7 @@ class _SingleCategoryBodyState extends State<SingleCategoryBody> {
                       children: [
                         Image.network(
                           singleCategoryVM.category!.imageUrl.toString(),
-                          height: 250,
+                          height: 550,
                           fit: BoxFit.cover,
                         ),
                         Positioned.fill(
@@ -84,8 +84,9 @@ class _SingleCategoryBodyState extends State<SingleCategoryBody> {
                                   singleCategoryVM.category!.categoryName.toString() ,
                                   style: TextStyle(
                                       fontSize: 30,
-                                      fontWeight: FontWeight.w700
+                                      fontWeight: FontWeight.w700,
                                   ),
+
                                 )),
                           ),
                         )

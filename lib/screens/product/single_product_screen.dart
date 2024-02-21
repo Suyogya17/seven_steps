@@ -168,7 +168,7 @@ class _SingleProductBodyState extends State<SingleProductBody> {
                       child: ElevatedButton(
                         onPressed: () {
                           CartRepository().addToCart(singleProductVM.product!, quantity).then((value) {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Cart updated")));
+                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Added to cart sucessfully")));
                           });
                         },
                         child: Text("Add to cart"),
@@ -177,7 +177,7 @@ class _SingleProductBodyState extends State<SingleProductBody> {
               ),
             ),
             appBar: AppBar(
-              backgroundColor: Colors.black54,
+              backgroundColor: Color(0xFFE6E6E6),
               actions: [
                 Builder(builder: (context) {
                   FavoriteModel? isFavorite;
@@ -198,7 +198,7 @@ class _SingleProductBodyState extends State<SingleProductBody> {
                 })
               ],
             ),
-            backgroundColor: Color(0xFFf5f5f4),
+            backgroundColor: Colors.white,
             body: SingleChildScrollView(
               child: Column(
                 children: [
@@ -213,17 +213,17 @@ class _SingleProductBodyState extends State<SingleProductBody> {
                         'assets/images/logo.png',
                         height: 400,
                         width: double.infinity,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fitWidth,
                       );
                     },
                   ),
                   SizedBox(
-                    height: 20,
+                    height: 0.5,
                   ),
                   Container(
-                      width: double.infinity,
+                      width: double.infinity,alignment: Alignment.center,
                       padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-                      decoration: BoxDecoration(color: Colors.white70),
+                      decoration: BoxDecoration(color: Colors.white24),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -231,7 +231,7 @@ class _SingleProductBodyState extends State<SingleProductBody> {
                             "Rs. " + singleProductVM.product!.productPrice.toString(),
                             style: TextStyle(
                                 fontSize: 30,
-                                color: Colors.green,
+                                color: Colors.brown,
                                 fontWeight: FontWeight.w900),
                           ),
                           SizedBox(

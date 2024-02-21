@@ -122,7 +122,7 @@ class _CartScreenState extends State<CartScreen> {
                           onPressed: () {
                             CartRepository().removeItemFromCart(e.product).then((value) {
                               ScaffoldMessenger.of(context)
-                                  .showSnackBar(SnackBar(content: Text("Cart updated")));
+                                  .showSnackBar(SnackBar(content: Text("Deleted from cart")));
                               getCartItems();
                             });
                           },
@@ -159,7 +159,7 @@ class _CartScreenState extends State<CartScreen> {
                                         .removeFromCart(e.product)
                                         .then((value) {
                                       ScaffoldMessenger.of(context).showSnackBar(
-                                          SnackBar(content: Text("Cart updated")));
+                                          SnackBar(content: Text("Removed from cart")));
                                       getCartItems();
                                     });
                                   },
@@ -189,7 +189,7 @@ class _CartScreenState extends State<CartScreen> {
                                         .addToCart(e.product, 1)
                                         .then((value) {
                                       ScaffoldMessenger.of(context).showSnackBar(
-                                          SnackBar(content: Text("Cart updated")));
+                                          SnackBar(content: Text("Added to cart")));
                                       getCartItems();
                                     });
                                   },
