@@ -15,6 +15,7 @@ class MyProductScreen extends StatefulWidget {
 class _MyProductScreenState extends State<MyProductScreen> {
   late GlobalUIViewModel _ui;
   late AuthViewModel _authViewModel;
+
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -39,7 +40,6 @@ class _MyProductScreenState extends State<MyProductScreen> {
   Widget build(BuildContext context) {
     return Consumer<AuthViewModel>(builder: (context, authVM, child) {
       return Scaffold(
-
         floatingActionButton: FloatingActionButton.extended(
           label: Text("Add Product"),
           icon: Icon(Icons.add),
@@ -51,25 +51,35 @@ class _MyProductScreenState extends State<MyProductScreen> {
           backgroundColor: Colors.white12,
           title: Text("My Products"),
         ),
-
-        body: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("assets/images/box.jpg")
+        body: Stack(
+          children: [
+            // Background Image
+            Image.asset(
+              'assets/images/boxes.png', // Replace with your image path
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
             ),
-          ),
-          child: RefreshIndicator(
-            onRefresh: getInit,
-            child: SingleChildScrollView(
-              physics: AlwaysScrollableScrollPhysics(),
-              child: Column(
-                children: [
-                  if (_authViewModel.myProduct != null && _authViewModel.myProduct!.isEmpty) Center(child: Text("You can add your products here")),
-                  if (_authViewModel.myProduct != null) ...authVM.myProduct!.map((e) => ProductWidgetList(context, e))
-                ],
+            // Content
+            Container(
+              child: RefreshIndicator(
+                onRefresh: getInit,
+                child: SingleChildScrollView(
+                  physics: AlwaysScrollableScrollPhysics(),
+                  child: Column(
+                    children: [
+                      if (_authViewModel.myProduct != null &&
+                          _authViewModel.myProduct!.isEmpty)
+                        Center(child: Text("You can add your products here")),
+                      if (_authViewModel.myProduct != null)
+                        ...authVM.myProduct!
+                            .map((e) => ProductWidgetList(context, e))
+                    ],
+                  ),
+                ),
               ),
             ),
-          ),
+          ],
         ),
       );
     });
@@ -86,21 +96,22 @@ class _MyProductScreenState extends State<MyProductScreen> {
           elevation: 5,
           child: ListTile(
             leading: ClipRRect(
-                borderRadius: BorderRadius.circular(5),
-                child: Image.network(
-                  e.imageUrl.toString(),
-                  height: 300,
-                  width: 100,
-                  fit: BoxFit.cover,
-                  errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
-                    return Image.asset(
-                      'assets/images/logo.png',
-                      height: 300,
-                      width: 100,
-                      fit: BoxFit.cover,
-                    );
-                  },
-                )),
+              borderRadius: BorderRadius.circular(5),
+              child: Image.network(
+                e.imageUrl.toString(),
+                height: 300,
+                width: 100,
+                fit: BoxFit.cover,
+                errorBuilder: (BuildContext context, Object exception, StackTrace? stackTrace) {
+                  return Image.asset(
+                    'assets/images/logo.png',
+                    height: 300,
+                    width: 100,
+                    fit: BoxFit.cover,
+                  );
+                },
+              ),
+            ),
             title: Text(e.productName.toString()),
             subtitle: Text(e.productPrice.toString()),
             trailing: Wrap(
@@ -125,36 +136,38 @@ class _MyProductScreenState extends State<MyProductScreen> {
     );
   }
 
-  Future<void> deleteProduct(String id) async{
+  Future<void> deleteProduct(String id) async {
     var response = await showDialog(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            title: Text('Delete product?'),
-            content: Text('Are you sure you want to delete this product?'),
-            actions: <Widget>[
-              TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text('Close')),
-              TextButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  deleteFunction(id);
-                },
-                child: Text('Delete'),
-              )
-            ],
-          );
-        });
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text('Delete product?'),
+          content: Text('Are you sure you want to delete this product?'),
+          actions: <Widget>[
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Close'),
+            ),
+            TextButton(
+              onPressed: () {
+                Navigator.pop(context);
+                deleteFunction(id);
+              },
+              child: Text('Delete'),
+            )
+          ],
+        );
+      },
+    );
   }
-  deleteFunction(String id) async{
 
+  deleteFunction(String id) async {
     _ui.loadState(true);
-    try{
+    try {
       await _authViewModel.deleteMyProduct(id);
-    }catch(e){
+    } catch (e) {
       print(e);
     }
     _ui.loadState(false);

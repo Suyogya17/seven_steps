@@ -33,10 +33,10 @@ class _AddProductScreenState extends State<AddProductScreen> {
         userId: _authViewModel.loggedInUser!.userId,
       );
       await _authViewModel.addMyProduct(data);
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Success")));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Successfully product added")));
       Navigator.of(context).pop();
     }catch(e){
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error")));
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text("Error !! ")));
     }
     _ui.loadState(false);
   }
@@ -113,7 +113,7 @@ class _AddProductScreenState extends State<AddProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black54,
+        backgroundColor: Colors.white,
         title: Text("Add a product"),
       ),
       body: Consumer<CategoryViewModel>(
@@ -126,7 +126,6 @@ class _AddProductScreenState extends State<AddProductScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-
                       SizedBox(height: 10,),
 
                       TextFormField(

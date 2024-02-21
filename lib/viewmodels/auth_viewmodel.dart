@@ -5,8 +5,6 @@ import 'package:seven_steps/models/product_model.dart';
 import 'package:seven_steps/models/user_model.dart';
 import 'package:seven_steps/repositories/auth_repositories.dart';
 import 'package:seven_steps/services/firebase_service.dart';
-import 'package:seven_steps/viewmodels/global_ui_viewmodel.dart';
-
 import '../models/favorite_model.dart';
 import '../repositories/favorite_repositories.dart';
 import '../repositories/product_repositories.dart';

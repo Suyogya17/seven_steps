@@ -193,7 +193,7 @@ class _SingleProductBodyState extends State<SingleProductBody> {
                       },
                       icon: Icon(
                         Icons.favorite,
-                        color: isFavorite != null ? Colors.red : Colors.white,
+                        color: isFavorite != null ? Colors.red : Colors.grey,
                       ));
                 })
               ],
