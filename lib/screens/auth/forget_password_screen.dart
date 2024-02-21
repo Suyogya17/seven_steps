@@ -118,7 +118,7 @@ class _ForgetPasswordScreenState extends State<ForgetPasswordScreen> {
                           onTap: () {
                             Navigator.of(context).pop();
                           },
-                          child: Text(
+                          child: const Text(
                             "Sign In",
                             style: TextStyle(color: Colors.lightBlue),
                           ))
