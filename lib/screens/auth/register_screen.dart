@@ -21,7 +21,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
   TextEditingController _nameController = TextEditingController();
   TextEditingController _phoneNumberController = TextEditingController();
   TextEditingController _usernameController = TextEditingController();
-  TextEditingController _gender = TextEditingController();
 
   bool _obscureTextPassword = true;
   bool _obscureTextPasswordConfirm = true;
