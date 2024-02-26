@@ -84,7 +84,7 @@ class _CartScreenState extends State<CartScreen> {
                 : items.length == 0
                 ? Column(
               children: [
-                Center(child: Text("Please add to favorite")),
+                Center(child: Text("Please add to Cart")),
               ],
             )
                 : Column(children: [
