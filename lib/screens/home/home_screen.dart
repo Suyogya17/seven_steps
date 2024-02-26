@@ -59,7 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-
                           Image.asset(
                             "assets/images/banner.jpg",
                             height: 200,
@@ -86,7 +85,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           Container(
                               margin: EdgeInsets.symmetric(horizontal: 10),
                               child: Text(
-                                "Our Products",
+                                " --- Our Products --- ",
                                 style: GoogleFonts.poppins(fontSize: 30, fontWeight: FontWeight.bold),
                               )),
                           Container(
@@ -141,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
                 Expanded(child: Container()),
                 Expanded(child: Image.asset("assets/images/logo.png",
-                  height: 100, width: 50,
+                  height: 200, width: 100,
                 )
                 ),
                 Expanded(

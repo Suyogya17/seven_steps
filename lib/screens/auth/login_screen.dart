@@ -77,6 +77,18 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 10,
                   ),
+                  Text(
+                    "Every Steps Matter",
+                    style: TextStyle(
+                      fontFamily: 'cursive',
+                      fontSize: 40,
+
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+
                   TextFormField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,

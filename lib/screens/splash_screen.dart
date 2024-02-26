@@ -48,12 +48,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white60,
+      backgroundColor: Colors.white,
       body: Center(
         child: SingleChildScrollView(
           child: Column(
             children: [
               Image.asset("assets/images/splash.gif"),
+
+
               SizedBox(height: 100,),
               Text("Plese Wait !!", style: TextStyle(
                   fontSize: 22

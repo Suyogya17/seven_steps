@@ -57,8 +57,7 @@ class _SingleCategoryBodyState extends State<SingleCategoryBody> {
         child: singleCategoryVM.category == null ? Text("Please wait") :
         Scaffold(
           appBar: AppBar(
-
-            backgroundColor: Colors.black54,
+            backgroundColor: Colors.white,
           ),
           body: RefreshIndicator(
             onRefresh: () => getData(categoryId.toString()),
@@ -140,7 +139,7 @@ class _SingleCategoryBodyState extends State<SingleCategoryBody> {
                         'assets/images/logo.png',
                         height: 300,
                         width: double.infinity,
-                        fit: BoxFit.cover,
+                        fit: BoxFit.fitWidth,
                       );
                     },
                   )),
@@ -162,7 +161,7 @@ class _SingleCategoryBodyState extends State<SingleCategoryBody> {
                           ),
                           Text(
                             "Rs. "+e.productPrice.toString(),
-                            style: TextStyle(fontSize: 15, color: Colors.green),
+                            style: TextStyle(fontSize: 15, color: Colors.brown),
                             textAlign: TextAlign.center,
                             maxLines: 2,
                           ),
