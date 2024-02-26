@@ -74,7 +74,12 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
             authVM.favoriteProduct!.length == 0
                 ? Column(
               children: [
-                Center(child: Text("Please add to favorite")),
+
+                Center(child: Text("Please add to favorite",
+                style: TextStyle(
+                  height: 5,
+                ),
+                )),
               ],
             )
                 : Column(children: [
