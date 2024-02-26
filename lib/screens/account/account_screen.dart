@@ -74,7 +74,7 @@ class _AccountScreenState extends State<AccountScreen> {
           makeSettings(
               icon: Icon(Icons.logout),
               title: "Logout",
-              subtitle: "Logout from this application",
+              subtitle: "Logout from here",
               onTap: (){
                 logout();
               }
